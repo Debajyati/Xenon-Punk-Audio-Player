@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xenon Punk Audio Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link type="text/css" href="style.css" rel="stylesheet">
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="playlist">
+            <h2>Playlist</h2>
+            <ul id="playlist">
+                <li data-src="audio/Memory Reboot.mp3">🎵 Memory Reboot</li>
+                <li data-src="audio/Dystopian_Hybrid_by_miguel.mp3">🎵 Dystopian Hybrid</li>
+                <li data-src="audio/Gangsta's Paradise.mp3">🎵 Gangsta's Paradise</li>
+                <li data-src="audio/Neon Skies.mp3">🎵 Neon Skies</li>
+                <li data-src="audio/Gangsta´s Paradise (Escape Velocity) (Official _Valerian_ Trailer).mp3">🎵 Gangsta´s Paradise(2WEI)</li>
+            </ul>
+        </div>
+        <div class="player">
+            <h1 id="title">Xenon Punk Audio Player</h1>
+            <audio id="audio" controls>
+                <source src="audio/Memory Reboot.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <div id="animation" class="audio-animation">
+                <img src="Aanimation.gif" alt="Audio Animation">
+            </div>
+            <div class="controls">
+                <button type="button" id="play">Play</button>
+                <button type="button" id="pause">Pause</button>
+                <button type="button" id="stop">Stop</button>
+                <button type="button" id="prev">Prev</button>
+                <button type="button" id="next">Next</button>
+                <button type="button" id="loop">Loop</button>
+                <button type="button" id="shuffle">Shuffle</button>
+                <button type="button" id="single-loop">Single Loop</button>
+            </div>
+        </div>
+        <div class="upload">
+            <input type="file" id="upload-input" accept="audio/*" multiple>
+            <button id="upload-button">Upload</button>
+        </div>
+    </div>
+    <div id="now-playing" class="now-playing"></div>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
+
