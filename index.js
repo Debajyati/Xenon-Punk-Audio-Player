@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function addTrackToPlaylist(name, src) {
     const li = document.createElement("li");
-    li.textContent = `🎵 ${name}`;
+    li.textContent = `󰎆 ${name}`;
     li.setAttribute("data-src", src);
     playlist.appendChild(li);
     tracks = Array.from(playlist.getElementsByTagName("li"));
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
   uploadButton.addEventListener("click", () => {
     const files = uploadInput.files;
     for (const file of files) {
-      const fileExists = tracks.some((track) => track.textContent === `🎵 ${file.name}`);
+      const fileExists = tracks.some((track) => track.textContent === `󰎆 ${file.name}`);
       if (fileExists) {
         swal({ title: "File " + file.name + " already exists in the playlist", text: "Duplicate File Found! Upload Aborted...", icon: "error", dangerMode: true, buttons: true });
       } else {
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { opacity: 0.3, color: "#6f2232" },
     { opacity: 1, color: "#6f2232" },
     { opacity: 0.8, color: "#3C00C3" },
-    { opacity: 0.8, color: "rgb(57, 124, 251)" },
+    { opacity: 0.8, color: "#397cfb" },
     { opacity: 0.3, color: "#5CC4FF" },
     { opacity: 1, color: "#5CC4FF" },
   ], { duration: 2000, iterations: Infinity });
