@@ -77,7 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   audio.addEventListener("play", () => {
     playButton.textContent = "Play";
-    animation.style.display = "block";
+    animation.style.display = "flex";
+    animation.style.setProperty("align-self", "center");
     nowPlaying.textContent = `Now playing: ${tracks[currentTrack].textContent}`;
   });
 
