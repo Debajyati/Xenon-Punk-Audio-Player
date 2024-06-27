@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link type="text/css" href="style.css" rel="stylesheet">
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 </head>
@@ -15,13 +14,13 @@
     <div class="container">
         <div class="playlist">
             <h2>Playlist</h2>
+            <input type="text" id="search-bar" placeholder="Search for a song...">
             <ul id="playlist">
-                <input type="text" id="search-bar" placeholder="Search for a song...">
-                <li data-src="audio/Memory Reboot.mp3">󰎆  Memory Reboot</li>
-                <li data-src="audio/Dystopian_Hybrid_by_miguel.mp3">󰎆  Dystopian Hybrid</li>
-                <li data-src="audio/Gangsta's Paradise.mp3">󰎆  Gangsta's Paradise</li>
-                <li data-src="audio/Neon Skies.mp3">󰎆  Neon Skies</li>
-                <li data-src="audio/Gangsta´s Paradise (Escape Velocity) (Official _Valerian_ Trailer).mp3">󰎆  Gangsta's Paradise(2WEI)</li>
+                <li data-src="audio/Memory Reboot.mp3">🎧  Memory Reboot</li>
+                <li data-src="audio/Dystopian_Hybrid_by_miguel.mp3">🎧  Dystopian Hybrid</li>
+                <li data-src="audio/Gangsta's Paradise.mp3">🎧  Gangsta's Paradise</li>
+                <li data-src="audio/Neon Skies.mp3">🎧  Neon Skies</li>
+                <li data-src="audio/Gangsta´s Paradise (Escape Velocity) (Official _Valerian_ Trailer).mp3">🎧  Gangsta's Paradise(2WEI)</li>
             </ul>
         </div>
         <div class="player">
@@ -31,7 +30,7 @@
                 Your browser does not support the audio element.
             </audio>
             <div id="animation" class="audio-animation">
-                <img src="animation.gif" alt="Audio Animation">
+                <img id="animation-img" src="animation.gif" alt="Audio Animation">
             </div>
             <div class="controls">
                 <button type="button" id="play">Play</button>
