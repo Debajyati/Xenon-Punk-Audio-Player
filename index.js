@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
- const audio = document.getElementById("audio");
+  const audio = document.getElementById("audio");
   const playButton = document.getElementById("play");
   const pauseButton = document.getElementById("pause");
   const stopButton = document.getElementById("stop");
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nowPlaying = document.getElementById("now-playing");
   const uploadInput = document.getElementById("upload-input");
   const uploadButton = document.getElementById("upload-button");
+  const forMobile = window.matchMedia("(max-width: 768px)");
   let isLooping = false;
   let isShuffling = false;
   let isSingleLoop = false;
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function addTrackToPlaylist(name, src) {
     const li = document.createElement("li");
-    li.textContent = `󰎆 ${name}`;
+    li.textContent = `🎧 ${name}`;
     li.setAttribute("data-src", src);
     playlist.appendChild(li);
     tracks = Array.from(playlist.getElementsByTagName("li"));
@@ -73,18 +74,23 @@ document.addEventListener("DOMContentLoaded", () => {
     playButton.textContent = "Play";
     animation.style.display = "none";
     nowPlaying.textContent = "";
+    mobileMediaiQueryListener(forMobile, "ended");
+    if (isLooping || isSingleLoop || isShuffling) {
+      playNext();
+    }
   });
 
   audio.addEventListener("play", () => {
     playButton.textContent = "Play";
     animation.style.display = "flex";
-    animation.style.setProperty("align-self", "center");
+    mobileMediaiQueryListener(forMobile, "play");
     nowPlaying.textContent = `Now playing: ${tracks[currentTrack].textContent}`;
   });
 
   audio.addEventListener("pause", () => {
     playButton.textContent = "Resume";
     animation.style.display = "none";
+    mobileMediaiQueryListener(forMobile, "pause");
   });
 
   playButton.addEventListener("click", () => {
@@ -113,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isLooping) {
       resetModes();
       isLooping = true;
+      playNext();
     } else {
       isLooping = false;
     }
@@ -175,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
   uploadButton.addEventListener("click", () => {
     const files = uploadInput.files;
     for (const file of files) {
-      const fileExists = tracks.some((track) => track.textContent === `󰎆 ${file.name}`);
+      const fileExists = tracks.some((track) => track.textContent === `🎧 ${file.name}`);
       if (fileExists) {
         swal({ title: "File " + file.name + " already exists in the playlist", text: "Duplicate File Found! Upload Aborted...", icon: "error", dangerMode: true, buttons: true });
       } else {
@@ -198,3 +205,16 @@ document.addEventListener("DOMContentLoaded", () => {
   ], { duration: 2000, iterations: Infinity });
 });
 
+function mobileMediaiQueryListener(query, event) {
+  const containerEl = document.querySelector(".container");
+  const audioInfoEl = document.getElementById("now-playing");
+  const playlistEl = document.getElementById("playlist");
+  if (query.matches && event === "play") {
+    containerEl.classList.add("margin-top-20");
+    audioInfoEl.classList.add("margin-bottom-20");
+  } else {
+    containerEl.classList.remove("margin-top-20");
+    audioInfoEl.classList.remove("margin-bottom-20");
+    playlistEl.classList.add("playlist");
+  }
+}
