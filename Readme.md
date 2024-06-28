@@ -49,7 +49,7 @@ The project is divided into several key files:
 
 - **index.html**: The main HTML file containing the structure of the audio player.
 - **style.css**: Contains all the styles and media queries for responsiveness.
-- **script.js**: Main JavaScript file handling the core functionality of the audio player.
+- **index.js**: Main JavaScript file handling the core functionality of the audio player.
 - **search.js**: JavaScript file dedicated to the search functionality within the playlist.
 
 ## Contributing
